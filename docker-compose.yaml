@@ -1,0 +1,15 @@
+version: '3.5'
+services:
+  nginx:
+    image: "nginx:alpine"
+    container_name: nginx
+    ports:
+      - 443:443
+      - 80:80
+    volumes:
+      - ./nginx.conf:/etc/nginx/nginx.conf:ro
+    networks:
+      - proxynet
+networks:
+  proxynet:
+    name: proxynet
